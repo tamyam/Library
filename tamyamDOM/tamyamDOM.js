@@ -65,7 +65,9 @@
                     for(var key in name) {
                         if(name.hasOwnProperty(key)) {
                             var val = name[key];
-                            this.css(key, value);
+                            allCall(function(el) {
+                                el.style.setProperty(key, val);
+                            }, this);
                         }
                     }
                     return undefined;
