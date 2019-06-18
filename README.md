@@ -24,4 +24,9 @@ $ = tamyamDOM
 - *cssProp* = *$elem*.css(*name*)
 - *$elem*.css(*name*, *value*)
 - *$elem*.css(*props*)
-- *$tagName* = *$elem*.tag
+- *$elem*.addClass(*...class*)
+- *$elem*.removeClass(*...class*)
+- *hasClass* = *$elem*.hasClass(*class*)
+- *$elem*.toggleClass(*class*[, *force*])
+- *new$elem* = *$elem*.index(*index*)
+- *tagName* = *$elem*.tag
