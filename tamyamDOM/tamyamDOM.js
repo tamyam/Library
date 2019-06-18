@@ -46,6 +46,18 @@
             return value == null ? (this[0] || {}).hasAttribute(name) ? (this[0] || {}).getAttribute(name) : null : allCall(function(el) {
                 el.setAttribute(name, value);
             }, this);
+        },
+        on: function() {
+            var args = arguments;
+            allCall(function(el) {
+                EventTarget.prototype.addEventListener.apply(el, args);
+            }, this);
+        },
+        off: function() {
+            var args = arguments;
+            allCall(function(el) {
+                EventTarget.prototype.removeEventListener.apply(el, args);
+            }, this);
         }
     };
     function allCall(func, self) {

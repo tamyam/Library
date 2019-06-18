@@ -17,4 +17,8 @@ $ = tamyamDOM
 - *$elem*.value = *value*
 - *attr* = *$elem*.attr(*name*)
 - *$elem*.attr(*name*, *value*)
+- *$elem*.on(type, listener[, options])
+- *$elem*.on(type, listener[, useCapture])
+- *$elem*.off(type, listener[, options])
+- *$elem*.off(type, listener[, useCapture])
 - *$tagName* = *$elem*.tag
