@@ -15,3 +15,6 @@ $ = tamyamDOM
 - *$elem*.innerHTML = *innerHTML*
 - *value* = *$elem*.value
 - *$elem*.value = *value*
+- *attr* = *$elem*.attr(*name*)
+- *$elem*.attr(*name*, *value*)
+- *$tagName* = *$elem*.tag

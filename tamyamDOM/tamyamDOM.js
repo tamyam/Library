@@ -21,6 +21,7 @@
                     obj[i] = args[i];
                 }
         }
+        obj.tag = (obj[0] || {}).tagName;
         return obj;
     }
     ArrayLike.obj = function() {};
@@ -39,6 +40,11 @@
         set value(val) {
             allCall(function(el) {
                 el.value = val;
+            }, this);
+        },
+        attr: function(name, value) {
+            return value == null ? (this[0] || {}).getAttribute(name) : allCall(function(el) {
+                el.setAttribute(name, value);
             }, this);
         }
     };
