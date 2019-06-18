@@ -12,6 +12,6 @@ $ = tamyamDOM
 - $.get.query(*cssquery*)
 - $.noConflict(*bool*)
 - *innerHTML* = *$elem*.innerHTML
-- *$elem*.innerHTML = *String*
+- *$elem*.innerHTML = *innerHTML*
 - *value* = *$elem*.value
-- *$elem*.value = *String*
+- *$elem*.value = *value*
