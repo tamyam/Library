@@ -43,21 +43,30 @@
             }, this);
         },
         attr: function(name, value) {
-            return value == null ? (this[0] || {}).hasAttribute(name) ? (this[0] || {}).getAttribute(name) : null : allCall(function(el) {
-                el.setAttribute(name, value);
-            }, this);
+            if(value == null) {
+                if((this[0] || {}).hasAttribute(name)) {
+                    return (this[0] || {}).getAttribute(name);
+                }
+            } else {
+                allCall(function(el) {
+                    el.setAttribute(name, value);
+                }, this);
+            }
+            return this;
         },
         on: function() {
             var args = arguments;
             allCall(function(el) {
                 EventTarget.prototype.addEventListener.apply(el, args);
             }, this);
+            return this;
         },
         off: function() {
             var args = arguments;
             allCall(function(el) {
                 EventTarget.prototype.removeEventListener.apply(el, args);
             }, this);
+            return this;
         },
         css: function(name, value) {
             if(value == null) {
@@ -70,27 +79,30 @@
                             }, this);
                         }
                     }
-                    return undefined;
+                    return this;
                 } else {
                     return (this[0] || {}).style.getPropertyValue(name);
                 }
             } else {
-                return allCall(function(el) {
+                allCall(function(el) {
                     el.style.setProperty(name, value);
                 }, this);
             }
+            return this;
         },
         addClass: function() {
             var args = arguments;
             allCall(function(el) {
                 el.classList.add.apply(el.classList, args);
             }, this);
+            return this;
         },
         removeClass: function() {
             var args = arguments;
             allCall(function(el) {
                 el.classList.remove.apply(el.classList, args);
             }, this);
+            return this;
         },
         hasClass: function(classname) {
             var hasClass = false;
@@ -104,9 +116,21 @@
             allCall(function(el) {
                 el.classList.toggle.apply(el.classList, args);
             }, this);
+            return this;
         },
         index: function(i) {
             return ArrayLike(this[i]);
+        },
+        append: function() {
+            var args = arguments;
+            allCall(function(el) {
+                for(var i = 0; i < args.length; i++) {
+                    for(var j = 0; j < args[i].length; j++) {
+                        el.appendChild(args[i][j].cloneNode(true));
+                    }
+                }
+            }, this);
+            return this;
         }
     };
     function allCall(func, self) {
@@ -147,6 +171,12 @@
                 var els = document.querySelectorAll(selector);
                 return ArrayLike.apply(0, els);
             }
+        },
+        createElem: function(tag) {
+            return ArrayLike(document.createElement(tag));
+        },
+        createText: function(tag) {
+            return ArrayLike(document.createTextNode(tag));
         },
         noConflict: function(bool) {
             global.$ = bool || bool === undefined ? global.tamyamDOM.old$ : global.tamyamDOM;

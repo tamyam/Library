@@ -10,6 +10,8 @@ $ = tamyamDOM
 - $.get.name(*name*)
 - $.get.tag(*tagname*)
 - $.get.query(*cssquery*)
+- *$elem* = $.createElem(*tagname*)
+- *$text* = $.createText(*text*)
 - $.noConflict(*bool*)
 - *new$name* = $.noConflict(*bool*)
 - *innerHTML* = *$elem*.innerHTML
@@ -30,4 +32,5 @@ $ = tamyamDOM
 - *hasClass* = *$elem*.hasClass(*class*)
 - *$elem*.toggleClass(*class*[, *force*])
 - *new$elem* = *$elem*.index(*index*)
+- *$toelem*.append(*...$elem*)
 - *tagName* = *$elem*.tag
