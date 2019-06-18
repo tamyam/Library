@@ -5,7 +5,8 @@
     "use strict";
     function ArrayLike() {
         var args = arguments;
-        var obj = global.tamyamDOM.clone(ArrayLike.obj);
+        console.log(ArrayLike.obj);
+        var obj = new ArrayLike.obj;
 
         switch(args.length) {
             case 0:
@@ -23,12 +24,8 @@
         }
         return obj;
     }
-    function allCall(func, self) {
-        for(var i = 0; i < self.length; i++) {
-            func(self[i]);
-        }
-    }
-    ArrayLike.obj = {
+    ArrayLike.obj = function() {};
+    ArrayLike.obj.prototype = {
         get innerHTML() {
             return (this[0] || {}).innerHTML;
         },
@@ -46,6 +43,11 @@
             }, this);
         }
     };
+    function allCall(func, self) {
+        for(var i = 0; i < self.length; i++) {
+            func(self[i]);
+        }
+    }
     global.$ = global.tamyamDOM = {
         clone: function(obj) {
             var r = {};
