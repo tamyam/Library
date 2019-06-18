@@ -5,7 +5,6 @@
     "use strict";
     function ArrayLike() {
         var args = arguments;
-        console.log(ArrayLike.obj);
         var obj = new ArrayLike.obj;
 
         switch(args.length) {
