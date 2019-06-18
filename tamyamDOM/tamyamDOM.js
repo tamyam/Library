@@ -1,5 +1,5 @@
 /*
- * tamyamDOM JavaScript Library v1.0
+ * tamyamDOM JavaScript Library v0.1.1
  * https://tamyam.github.io/tamyamLibrary/
  */
 (function(global, undefined) {
