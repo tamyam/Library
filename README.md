@@ -11,6 +11,7 @@ $ = tamyamDOM
 - $.get.tag(*tagname*)
 - $.get.query(*cssquery*)
 - $.noConflict(*bool*)
+- *new$name* = $.noConflict(*bool*)
 - *innerHTML* = *$elem*.innerHTML
 - *$elem*.innerHTML = *innerHTML*
 - *value* = *$elem*.value
