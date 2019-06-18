@@ -43,7 +43,7 @@
             }, this);
         },
         attr: function(name, value) {
-            return value == null ? (this[0] || {}).getAttribute(name) : allCall(function(el) {
+            return value == null ? (this[0] || {}).hasAttribute(name) ? (this[0] || {}).getAttribute(name) : null : allCall(function(el) {
                 el.setAttribute(name, value);
             }, this);
         }
