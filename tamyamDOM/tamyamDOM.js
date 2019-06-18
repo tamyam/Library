@@ -51,6 +51,10 @@
                 var els = document.getElementsByName(selector);
                 return ArrayLike.apply(0, els);
             },
+            tag: function(selector) {
+                var els = document.getElementsByTagName(selector);
+                return ArrayLike.apply(0, els);
+            },
             query: function(selector) {
                 var els = document.querySelectorAll(selector);
                 return ArrayLike.apply(0, els);
