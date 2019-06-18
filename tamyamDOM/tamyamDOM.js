@@ -42,6 +42,14 @@
             id: function(selector) {
                 var el = document.getElementById(selector);
                 return el == null ? ArrayLike() : ArrayLike(el);
+            },
+            class: function(selector) {
+                var els = document.getElementsByClassName(selector);
+                return ArrayLike.apply(0, els);
+            },
+            query: function(selector) {
+                var els = document.querySelectorAll(selector);
+                return ArrayLike.apply(0, els);
             }
         },
         noConflict: function(bool) {
