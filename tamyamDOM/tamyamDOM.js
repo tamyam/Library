@@ -2,6 +2,7 @@
  * https://tamyam.github.io/tamyamLibrary/
  */
 (function(global, undefined) {
+    "use strict";
     function ArrayLike() {
         var args = arguments;
         var obj = global.tamyamDOM.clone(ArrayLike.obj);
