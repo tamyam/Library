@@ -22,9 +22,29 @@
                 }
         }
         return obj;
-    };
+    }
+    function allCall(func, self) {
+        for(var i = 0; i < self.length; i++) {
+            func(self[i]);
+        }
+    }
     ArrayLike.obj = {
-        
+        get innerHTML() {
+            return (this[0] || {}).innerHTML;
+        },
+        set innerHTML(val) {
+            allCall(function(el) {
+                el.innerHTML = val;
+            }, this);
+        },
+        get value() {
+            return (this[0] || {}).innerHTML;
+        },
+        set value(val) {
+            allCall(function(el) {
+                el.value = val;
+            }, this);
+        }
     };
     global.$ = global.tamyamDOM = {
         clone: function(obj) {
