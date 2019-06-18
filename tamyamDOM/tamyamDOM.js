@@ -150,6 +150,7 @@
         },
         noConflict: function(bool) {
             global.$ = bool || bool === undefined ? global.tamyamDOM.old$ : global.tamyamDOM;
+            return global.tamyamDOM;
         },
         old$: global.$
     };
