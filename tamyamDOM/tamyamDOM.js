@@ -58,6 +58,25 @@
             allCall(function(el) {
                 EventTarget.prototype.removeEventListener.apply(el, args);
             }, this);
+        },
+        css: function(name, value) {
+            if(value == null) {
+                if(typeof name === "object" && name != null) {
+                    for(var key in name) {
+                        if(name.hasOwnProperty(key)) {
+                            var val = name[key];
+                            this.css(key, value);
+                        }
+                    }
+                    return undefined;
+                } else {
+                    return (this[0] || {}).style.getPropertyValue(name);
+                }
+            } else {
+                return allCall(function(el) {
+                    el.style.setProperty(name, value);
+                }, this);
+            }
         }
     };
     function allCall(func, self) {

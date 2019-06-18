@@ -21,4 +21,7 @@ $ = tamyamDOM
 - *$elem*.on(type, listener[, useCapture])
 - *$elem*.off(type, listener[, options])
 - *$elem*.off(type, listener[, useCapture])
+- *cssProp* = *$elem*.css(*name*)
+- *$elem*.css(*name*, *value*)
+- *$elem*.css(*props*)
 - *$tagName* = *$elem*.tag
