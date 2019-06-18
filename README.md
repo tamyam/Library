@@ -4,7 +4,7 @@ tamyam's Library.
 ### tamyamDOM reference
 $ = tamyamDOM
 
-- newObject = $.clone(*obj*)
+- *newObject* = $.clone(*obj*)
 - $.get.id(*id*)
 - $.get.class(*class*)
 - $.get.name(*name*)
