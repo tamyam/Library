@@ -33,4 +33,5 @@ $ = tamyamDOM
 - *$elem*.toggleClass(*class*[, *force*])
 - *new$elem* = *$elem*.index(*index*)
 - *$toelem*.append(*...$elem*)
+- *$elem*.remove()
 - *tagName* = *$elem*.tag
