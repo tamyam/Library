@@ -199,7 +199,7 @@
         createText: function(tag) {
             return ArrayLike(document.createTextNode(tag));
         },
-        type: function(obj) {
+        typeof: function(obj) {
             if(typeof obj === "number" && obj !== obj) {
                 return "NaN";
             } else {
