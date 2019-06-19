@@ -160,7 +160,7 @@
         }
     }
     global.$ = global.tamyamDOM = {
-        clone: function(obj) {
+        objclone: function(obj) {
             var r = {};
             for(var name in obj) {
                 if(typeof obj[name] === "object" && obj[name] != null) {

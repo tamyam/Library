@@ -4,7 +4,7 @@ tamyam's Library.
 ### tamyamDOM reference
 $ = tamyamDOM
 
-- *newObject* = $.clone(*obj*)
+- *newObject* = $.objclone(*obj*)
 - $.get.id(*id*)
 - $.get.class(*class*)
 - $.get.name(*name*)
@@ -41,5 +41,5 @@ $ = tamyamDOM
 - *$elem*.append(*...$elem*)
 - *$elem*.remove()
 - *$elem*.reverse()
-- *elem*.forEach(*callback*, *thisArg*?)
+- *$elem*.forEach(*callback*, *thisArg*?)
 - *tagName* = *$elem*.tag
