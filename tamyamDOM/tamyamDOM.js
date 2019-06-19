@@ -4,7 +4,12 @@
 (function(global, undefined) {
     "use strict";
     function ArrayLike() {
-        var args = arguments;
+        var temp = [];
+        var args = Array.prototype.filter.call(arguments, function(x) {
+            var returnBool = temp.indexOf(x) == -1;
+            if(returnBool) temp.push(x);
+            return returnBool;
+        });
         var obj = new ArrayLike.obj;
 
         switch(args.length) {
@@ -144,6 +149,25 @@
                 }
             }, this);
             return this;
+        },
+        prepend: function() {
+            var args = arguments;
+            allCall(function(el) {
+                for(var i = 0; i < args.length; i++) {
+                    for(var j = 0; j < args[i].length; j++) {
+                        el.insertBefore(args[i][j].cloneNode(true), el.firstElementChild);
+                    }
+                    if(i === 0) args[i].remove();
+                }
+            }, this);
+            return this;
+        },
+        parent: function() {
+            var array = [];
+            allCall(function(el) {
+                array.push(el.parentNode);
+            }, this);
+            return ArrayLike.apply(0, array);
         },
         remove: function() {
             allCall(function(el) {
