@@ -39,7 +39,9 @@ $ = tamyamDOM
 - *$elem*.toggleClass(*class*, *force*?)
 - *$elem* = *$elem*.index(*index*)
 - *$elem*.append(*...$elem*)
-- *$elem*.remove === *array*.remove
+- *$elem*.prepend(*...$elem*)
+- *$elem*.parent()
+- *$elem*.remove()
 - *$elem*.reverse === *array*.reverse
 - *$elem*.pop === *array*.pop
 - *$elem*.push === *array*.push
