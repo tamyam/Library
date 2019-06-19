@@ -12,8 +12,9 @@ $ = tamyamDOM
 - $.get.query(*cssquery*)
 - *$elem* = $.createElem(*tagname*)
 - *$text* = $.createText(*text*)
-- *type* = $.type(*object*)
+- *typeof* = $.type(*object*)
 - $.noConflict(*bool*)
+- *old$* = old$
 - *new$name* = $.noConflict(*bool*)
 - *innerHTML* = *$elem*.innerHTML
 - *$elem*.innerHTML = *innerHTML*
@@ -37,7 +38,7 @@ $ = tamyamDOM
 - *hasClass* = *$elem*.hasClass(*class*)
 - *$elem*.toggleClass(*class*, *force*?)
 - *new$elem* = *$elem*.index(*index*)
-- *$toelem*.append(*...$elem*)
+- *$elem*.append(*...$elem*)
 - *$elem*.remove()
 - *$elem*.reverse()
 - *elem*.forEach(*callback*, *thisArg*?)
