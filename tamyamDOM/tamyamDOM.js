@@ -54,17 +54,29 @@
             }
             return this;
         },
-        on: function() {
+        on: function(type, listener, options) {
             var args = arguments;
             allCall(function(el) {
-                EventTarget.prototype.addEventListener.apply(el, args);
+                if(global.tamyamDOM.type(type) === "String") {
+                    el.addEventListener(type, listener, options);
+                } else {
+                    type.forEach(function(typ) {
+                        el.addEventListener(typ, listener, options);
+                    });
+                }
             }, this);
             return this;
         },
-        off: function() {
+        off: function(type, listener, options) {
             var args = arguments;
             allCall(function(el) {
-                EventTarget.prototype.removeEventListener.apply(el, args);
+                if(global.tamyamDOM.type(type) === "String") {
+                    el.removeEventListener(type, listener, options);
+                } else {
+                    type.forEach(function(typ) {
+                        el.removeEventListener(typ, listener, options);
+                    });
+                }
             }, this);
             return this;
         },
@@ -140,6 +152,8 @@
             }, this);
         }
     };
+    ArrayLike.obj.prototype.reverse = Array.prototype.reverse;
+    ArrayLike.obj.prototype.forEach = Array.prototype.forEach;
     function allCall(func, self) {
         for(var i = 0; i < self.length; i++) {
             func(self[i]);
@@ -184,6 +198,13 @@
         },
         createText: function(tag) {
             return ArrayLike(document.createTextNode(tag));
+        },
+        type: function(obj) {
+            if(typeof obj === "number" && obj !== obj) {
+                return "NaN";
+            } else {
+                return Object.prototype.toString.call(obj).slice(8, -1);
+            }
         },
         noConflict: function(bool) {
             global.$ = bool || bool === undefined ? global.tamyamDOM.old$ : global.tamyamDOM;
