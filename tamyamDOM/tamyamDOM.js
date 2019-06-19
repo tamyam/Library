@@ -128,9 +128,16 @@
                     for(var j = 0; j < args[i].length; j++) {
                         el.appendChild(args[i][j].cloneNode(true));
                     }
+                    if(i === 0) args[i].remove();
                 }
             }, this);
             return this;
+        },
+        remove: function() {
+            allCall(function(el) {
+                var parent = el.parentNode;
+                if(parent != null) parent.removeChild(el);
+            }, this);
         }
     };
     function allCall(func, self) {
