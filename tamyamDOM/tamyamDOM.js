@@ -154,6 +154,10 @@
     };
     ArrayLike.obj.prototype.reverse = Array.prototype.reverse;
     ArrayLike.obj.prototype.forEach = Array.prototype.forEach;
+    ArrayLike.obj.prototype.pop = Array.prototype.pop;
+    ArrayLike.obj.prototype.push = Array.prototype.push;
+    ArrayLike.obj.prototype.shift = Array.prototype.shift;
+    ArrayLike.obj.prototype.unshift = Array.prototype.unshift;
     function allCall(func, self) {
         for(var i = 0; i < self.length; i++) {
             func(self[i]);
