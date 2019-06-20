@@ -4,12 +4,13 @@ tamyam's Library.
 ### tamyamDOM reference
 $ = tamyamDOM
 
+- *$elem* = $(*selector*)
 - *newObject* = $.objclone(*obj*)
-- $.get.id(*id*)
-- $.get.class(*class*)
-- $.get.name(*name*)
-- $.get.tag(*tagname*)
-- $.get.query(*cssquery*)
+- *$elem* = $.get.id(*id*)
+- *$elem* = $.get.class(*class*)
+- *$elem* = $.get.name(*name*)
+- *$elem* = $.get.tag(*tagname*)
+- *$elem* = $.get.query(*cssquery*)
 - *$elem* = $.createElem(*tagname*)
 - *$text* = $.createText(*text*)
 - *type* = $.typeof(*object*)

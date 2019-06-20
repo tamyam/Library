@@ -187,7 +187,7 @@
             func(self[i]);
         }
     }
-    global.$ = global.tamyamDOM = {
+    var fn = {
         objclone: function(obj) {
             var r = {};
             for(var name in obj) {
@@ -240,4 +240,30 @@
         },
         old$: global.$
     };
+    global.$ = global.tamyamDOM = function(selector) {
+        var selectorMatch = selector.match(/^([#.]?)\w+$/);
+        if(selectorMatch != null) {
+            var selectorName = selectorMatch[1];
+            switch(selectorName) {
+                case "#":
+                    return global.tamyamDOM.get.id(selector.replace(/^./, ""));
+                    break;
+                case ".":
+                    return global.tamyamDOM.get.class(selector.replace(/^./, ""));
+                    break;
+                case "":
+                    return global.tamyamDOM.get.tag(selector);
+                    break;
+                default:
+                    return undefined;
+            }
+        } else {
+            return global.tamyamDOM.get.query(selector);
+        }
+    };
+    for(var key in fn) {
+        if(fn.hasOwnProperty(key)) {
+            global.tamyamDOM[key] = fn[key];
+        }
+    }
 })(this);
