@@ -221,8 +221,8 @@
                 return ArrayLike.apply(0, els);
             }
         },
-        createElem: function(tag) {
-            return ArrayLike(document.createElement(tag));
+        createElem: function(tag, namespace) {
+            return ArrayLike(namespace == null ? document.createElement(tag) : document.createElementNS(namespace, tag));
         },
         createText: function(tag) {
             return ArrayLike(document.createTextNode(tag));
