@@ -11,7 +11,7 @@ $ = tamyamDOM
 - *$elem* = $.get.name(*name*)
 - *$elem* = $.get.tag(*tagname*)
 - *$elem* = $.get.query(*cssquery*)
-- *$elem* = $.createElem(*tagname*)
+- *$elem* = $.createElem(*tagname*, *namespace*?)
 - *$text* = $.createText(*text*)
 - *type* = $.typeof(*object*)
 - $.noConflict(*bool*)
