@@ -1,4 +1,5 @@
 # Library
+***End of development***
 tamyam's Library.
 ## tamyamDOM
 ### tamyamDOM reference
